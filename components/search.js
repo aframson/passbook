@@ -56,7 +56,7 @@ export default class Collect extends Component {
 
   render() {
 
-     const newMoney = 40;
+     const newMoney = 60;
 
     return (
       <View>
@@ -66,7 +66,7 @@ export default class Collect extends Component {
             onChangeText={(data) => this.setState({ search: data ,loading:false})}
           />
           <TouchableOpacity style={styles.imgt} onPress={() => this.search()}>
-            {this.state.loading ? <ActivityIndicator size="large" color="#318f96" /> :
+            {this.state.loading ? <ActivityIndicator size="large" color="white" /> :
               <Image style={styles.imgs} source={require('../assets/send.png')} />}
           </TouchableOpacity>
         </View>

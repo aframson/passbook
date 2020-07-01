@@ -160,7 +160,7 @@ export default class Collect extends Component {
                         </View>
                    
                         <View style={styles.section}>
-                              <Text style={styles.redy}><Text style={styles.iden}>Telephone :</Text> 0{item.phone_number}</Text>
+                              <Text style={styles.redy}><Text style={styles.iden}>Telephone :</Text>{item.phone_number}</Text>
                         </View>
                 
                         <View style={styles.section}>
