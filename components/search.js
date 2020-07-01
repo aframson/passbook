@@ -55,6 +55,9 @@ export default class Collect extends Component {
 
 
   render() {
+
+     const newMoney = 40;
+
     return (
       <View>
         <View style={styles.mage}>
@@ -78,7 +81,7 @@ export default class Collect extends Component {
                      <Image style={styles.img}source={{uri:'http://tuatuagye.com/admin/admin/pages/forms/products/'+item.image}}/>
                      <Text style={styles.name} >{item.name}</Text>
                  </View>
-                 <View><Text style={styles.price}>GHC {item.price}</Text></View>
+                 <View><Text style={styles.price}>GHC { parseInt(item.price,10) + newMoney }</Text></View>
                  </View>
               )}
             />
