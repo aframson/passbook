@@ -1,0 +1,1 @@
+export const url = 'http://ttgdata.brichghana.com/passbook/'
