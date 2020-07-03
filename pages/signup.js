@@ -29,6 +29,8 @@ export default class SignUp extends Component {
 
      Register_user_det = () =>{
 
+
+     const mainDate = this.state.date_reg.getMonth()+'/'+this.state.date_reg.getDate()+'/'+this.state.date_reg.getDay()
                
     this.setState({loading:true},()=>{
         
@@ -50,14 +52,14 @@ export default class SignUp extends Component {
               item:this.state.item,
               price:this.state.price,
               amount_paid:this.state.amount_paid,
-              date_reg:this.state.date_reg,
+              date_reg:mainDate,
               person:this.props.data.name
 
             })
   
         }).then((res)=>res.json()).then((JsonRes)=>{
                  
-            console.log(JsonRes[0])
+            // console.log(JsonRes[0])
             if (JsonRes[0] == 'done') {
                   alert("Registration Successfull")
             }

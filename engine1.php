@@ -6,6 +6,67 @@
 
 
 
+
+
+function Check_total()
+{
+    include 'db.php';
+
+
+    $json_input = file_get_contents('php://input');
+
+
+    $data = json_decode($json_input, true);
+
+    $date = $data['date'];
+
+    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE now = '$date' ");
+
+    while ($row = mysqli_fetch_array($fetch)) {
+       
+          $bag[] = $row['amount_collected'];
+
+    }
+
+        $results = array_sum($bag);
+
+        echo json_encode($results);
+
+}
+
+
+
+
+function fetchDetail()
+{
+
+    include 'db.php';
+
+
+    $json_input = file_get_contents('php://input');
+
+
+    $data = json_decode($json_input, true);
+
+    $name = $data['name'];
+
+    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE extra1 = '$name' OR extra2 = '$name' ORDER BY id DESC");
+
+
+    while ($row  = mysqli_fetch_array($fetch)) {
+        
+        $message[] = $row;
+
+      }
+
+
+
+     echo json_encode($message);
+
+
+
+}
+
 function fetch_prod()
 {
     include 'db.php';
@@ -85,6 +146,8 @@ function update_user_info()
 
     $name = $data['name'];
 
+    $date = $data['date'];
+
     $check  = mysqli_query($con, "SELECT * FROM signups where cus_id = '$cus_id' ");
 
     $row = mysqli_fetch_array($check);
@@ -93,7 +156,8 @@ function update_user_info()
 
     $new_price = $current_dept + $update;
 
-    if (mysqli_query($con, "UPDATE signups SET  amount_paid = '$new_price', extra2 = '$name'  WHERE cus_id = '$cus_id' ")) {
+
+    if (mysqli_query($con, "UPDATE signups SET  amount_paid = '$new_price', extra2 = '$name', amount_collected = '$update', now = '$date'  WHERE cus_id = '$cus_id' ")) {
         $message[] = 'done';
     }
 
@@ -112,7 +176,7 @@ function  fetch_user_det()
 
     $search = $data['search'];
 
-    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE cus_id LIKE '%" . $search . "%' OR name LIKE '%" . $search . "%' ");
+    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE cus_id LIKE '%" . $search . "%'  ");
 
 
     while ($row = mysqli_fetch_array($fetch)) {

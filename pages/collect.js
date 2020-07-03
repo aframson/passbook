@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ActivityIndicator,FlatList} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ActivityIndicator,FlatList } from 'react-native';
 
 
 
@@ -16,7 +16,8 @@ export default class Collect extends Component {
       is_ready:false,
       update_price:'',
       cus_id:'',
-      name_of:''
+      name_of:'',
+      date:new Date()
     }
 
   }
@@ -35,10 +36,12 @@ export default class Collect extends Component {
          
        
     this.setState({loading:true},()=>{
+
+     const mainDate = this.state.date.getMonth()+'/'+this.state.date.getDate()+'/'+this.state.date.getDay()
         
       fetch('http://ttgdata.brichghana.com/passbook/route.php?func=update_user_info',{
           method:'POST',
-          headers: 
+          headers:
           {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
@@ -46,7 +49,8 @@ export default class Collect extends Component {
           body:JSON.stringify({
             update:this.state.update_price,
             cus_id:this.state.cus_id,
-            name:this.state.name_of
+            name:this.state.name_of,
+            date:mainDate
           })
 
       }).then((res)=>res.json()).then((JsonRes)=>{   
@@ -54,7 +58,7 @@ export default class Collect extends Component {
               // console.log(JsonRes[0])
               if (JsonRes[0] == 'done') {
                 fetch('http://tuatuagye.com/hubtelsms/collection?amount='+this.state.update_price+'&customerID='+this.state.cus_id).then((res)=>res.json()).then((JsonRes)=>{
-                  console.log(JsonRes)
+                  // console.log(JsonRes)
                })
                     alert("UPDATED SUCCESSFULLY !!!")
                    
@@ -180,7 +184,7 @@ export default class Collect extends Component {
                         </View>
                              
                         <View style={styles.section}>
-                             <Text style={styles.redy}><Text style={styles.iden}>Balance Left :</Text>  {(item.price - item.amount_paid)}</Text>
+                             <Text style={styles.redy}><Text style={styles.iden}>Money Left :</Text>  {(item.price - item.amount_paid)}</Text>
                         </View>
                 
                         <View style={styles.section}>

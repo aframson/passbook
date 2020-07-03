@@ -19,7 +19,7 @@ export default class App extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="Dashboard" component={Auth}  />
+          <Stack.Screen name="Passbook" component={Auth}  />
         </Stack.Navigator>
       </NavigationContainer>
 

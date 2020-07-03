@@ -37,7 +37,7 @@ export default class Login extends Component {
                             let name = JsonRes[0].usr_name;
                             let id = JsonRes[0].usr_id;
                             this.setState({load:false})
-                            this.props.navigation.navigate('Dashboard',{name:name,id:id})
+                            this.props.navigation.navigate('Passbook',{name:name,id:id})
                   }).catch((error)=>{
                       alert('Incorrect Username or password !!!')
                   })
@@ -75,7 +75,7 @@ export default class Login extends Component {
                     style={styles.inp}
                     placeholder="Enter Password..."
                     onChangeText={(data)=>this.setState({pass:data,load:false})}
-
+   
                 />
                  <TouchableOpacity style={styles.loginbutt}
                    onPress={this.login}

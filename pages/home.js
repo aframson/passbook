@@ -4,6 +4,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Collect from './collect'
 import SignUp from './signup'
 import Search from '../components/search'
+import Detail from '../components/detail'
+
 
 
 
@@ -13,9 +15,9 @@ const Tab = createMaterialTopTabNavigator();
 
 
 export default class Auth extends Component {
-                  constructor(props){
-                    super(props)
-                  }
+                    constructor(props){
+                      super(props)
+                    }
   render() {
      const data = this.props.route.params
     return (
@@ -28,6 +30,11 @@ export default class Auth extends Component {
              {()=> <SignUp data={data}/>}
           </Tab.Screen>
           <Tab.Screen name="Search" component={Search} />
+
+          <Tab.Screen name="Detail">
+          {()=> <Detail data={data}/>}
+          </Tab.Screen>
+
 
         </Tab.Navigator>
 
