@@ -72,7 +72,8 @@ export default class Detail extends Component {
              'Content-Type': 'application/json',
          },
          body:JSON.stringify({
-              date:mainDate
+              date:mainDate,
+              name:this.props.data.name
          })
 
         }).then((res)=>res.json()).then((resJson)=>{

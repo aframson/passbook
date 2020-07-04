@@ -32,7 +32,7 @@ export default class Auth extends Component {
           <Tab.Screen name="Search" component={Search} />
 
           <Tab.Screen name="Detail">
-          {()=> <Detail data={data}/>}
+            {()=> <Detail data={data}/>}
           </Tab.Screen>
 
 

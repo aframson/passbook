@@ -19,8 +19,9 @@ function Check_total()
     $data = json_decode($json_input, true);
 
     $date = $data['date'];
+    $name = $data['name'];
 
-    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE now = '$date' ");
+    $fetch = mysqli_query($con, "SELECT * FROM signups WHERE now = '$date' AND extra1 = '$name' OR extra2 = '$name' ");
 
     while ($row = mysqli_fetch_array($fetch)) {
        
