@@ -82,7 +82,7 @@ function fetch_prod()
     $search = $data['search'];
 
 
-    $fetch = mysqli_query($con, "SELECT * FROM oracle WHERE name LIKE '%" . $search . "%' ");
+    $fetch = mysqli_query($con, "SELECT * FROM oracle WHERE name LIKE '%" . $search . "%'  ");
 
 
     while ($row  = mysqli_fetch_array($fetch)) {
