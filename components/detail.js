@@ -16,6 +16,8 @@ export default class Detail extends Component {
     }
 
 
+
+ 
     componentDidMount(){
         this.fetch_details()
         this.check_total()
