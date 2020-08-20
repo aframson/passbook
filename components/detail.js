@@ -32,7 +32,7 @@ export default class Detail extends Component {
                 
                    fetch('http://ttgdata.brichghana.com/passbook/route.php?func=fetchDetail',{
                     method:'POST',
-                    headers: 
+                    headers:
                     {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
@@ -89,7 +89,8 @@ export default class Detail extends Component {
         })
 
 
- })
+      })
+
    }
 
 
@@ -105,7 +106,7 @@ export default class Detail extends Component {
                 Todays Transaction
                 </Text>   
                 <View style={styles.money}>
-                    <Text style={styles.fig}>Total : GHC {this.state.total}</Text>
+                    <Text style={styles.fig}>Total : GHC {}</Text>
                     <TouchableOpacity onPress={()=>{
                          this.fetch_details();
                          this.check_total()

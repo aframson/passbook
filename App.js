@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Login from './pages/login'
-import Auth from './pages/home'
+import Login from './pages/login';
+import Auth from './pages/home';
+
 
 
 
