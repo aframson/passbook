@@ -58,11 +58,16 @@ export default class SignUp extends Component {
             })
   
         }).then((res)=>res.json()).then((JsonRes)=>{
+
+           
+            
                  
             // console.log(JsonRes[0])
             if (JsonRes[0] == 'done') {
                   alert("Registration Successfull")
             }
+
+           
 
           this.setState({loading:false})
   

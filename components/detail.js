@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 
 
-
+// eclistiastis 31-....
 
 export default class Detail extends Component {
     constructor(props) {

@@ -4,10 +4,6 @@
 #                                 Mobile App Api (passBook)                                       
 #==================================================================================================
 
-
-
-
-
 function Check_total()
 {
     include 'db.php';
@@ -114,15 +110,14 @@ function Register_user()
     $item_type   = $data['item_type'];   
     $item        = $data['item'];
     $price       = $data['price'];
-    $amount_paid = $data['amount_paid'];
     $date_reg    = $data['date_reg'];
     $date_to_fin = $data['date_to_finish'];
     $person      = $data['person'];
 
     
 
-    if (mysqli_query($con,"INSERT INTO signups(cus_id,name,occupation,location,phone_number,item_type,item,price,amount_paid,date_initiated,date_completion,extra1)
-    VALUES('$cus_id','$name','$occupation','$location','$number','$item_type','$item','$price','$amount_paid','$date_reg','$date_to_fin','$person')")){
+    if (mysqli_query($con,"INSERT INTO signups(cus_id,name,occupation,location,phone_number,item_type,item,price,date_initiated,date_completion,extra1)
+    VALUES('$cus_id','$name','$occupation','$location','$number','$item_type','$item','$price','$date_reg','$date_to_fin','$person')")){
 
         $message[]  = 'done';
 
